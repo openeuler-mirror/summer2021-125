@@ -1,0 +1,42 @@
+Compliance-zhangfei software
+=================
+
+This software is import from https://github.com/nexB/scancode-toolkit, we may modify some features based on scancode.
+
+Compliance-zhangfei licenses
+=================
+Copyright (c) The compliance-zhangfei Authors
+
+SPDX-License-Identifier: Apache-2.0 AND CC-BY-4.0
+
+Compliance-zhangfei software is licensed under the Apache License version 2.0.
+Compliance-zhangfei data is licensed under CC-BY-4.0.
+
+
+ScanCode Licenses
+=================
+
+Copyright (c) nexB Inc. and others. All rights reserved.
+ScanCode is a trademark of nexB Inc.
+
+SPDX-License-Identifier: Apache-2.0 AND CC-BY-4.0
+
+ScanCode software is licensed under the Apache License version 2.0.
+ScanCode data is licensed under CC-BY-4.0.
+
+See https://www.apache.org/licenses/LICENSE-2.0 for the Apache-2.0 license text.
+See https://creativecommons.org/licenses/by/4.0/legalcode for the CC-BY-4.0 license text.
+
+See https://github.com/nexB/scancode-toolkit for support or download. 
+See https://aboutcode.org for more information about nexB OSS projects
+
+Third-party software licenses
+=============================
+
+Compliance-zhangfei embeds third-party free and open source software packages under various
+licenses including permissive, limited copyleft and copyleft licenses. The
+origin and license of each package is documented by licenses directory.
+
+The corresponding source code for pre-compiled third-party software is available
+in thirdparty directory.
+

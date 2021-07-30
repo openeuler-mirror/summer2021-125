@@ -1,37 +1,64 @@
-# Summer2021-No.125 开源软件源码license文本信息扫描工具开发
+#  Summer2021-No.125 开源软件源码license文本信息扫描工具开发
 
-#### 介绍
+#### Description
+
 https://gitee.com/openeuler-competition/summer-2021/issues/I3R0JW
 
-#### 软件架构
-软件架构说明
+# compliance-zhangfei
 
+Special Thanks : Aboutcode project -- what makes our tools **SPDX-Native**
 
-#### 安装教程
+### What is compliance-zhangfei
+A tool writtern by Python for open source copyright compliance and in future it can support other compliance scan.
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### Why compliance-zhangfei?
+“Open source compliance is the process by which users, integrators and developers of open source software observe copyright notices and satisfy license obligations for their open source software components” — The Linux Foundation
 
-#### 使用说明
+### What compliance-zhangfei now looks like?
+Now compliance-zhangfei is in its prototype, it's only a cli-tool for scan software license and maybe other metadata. 
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+emmm ... Vue-UI and Django_rest_api is on the way.
 
-#### 参与贡献
+Our purpose is to build a expert system to help people who uses opensource software to well obey their license and copyright obligations.
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+### How to build?
+Build environment: Ubuntu Linux 20.04 (recommended) / M$ Windows 10 
 
+Build tool: VC buildTool (if M$ Windows) | Python 3.6+ | pip 20.3.3+
 
-#### 特技
+* **PAY ATTENTION** : If you are in M$ windows, you should install VC buildTool and Windows SDK firstly. You can get it from (https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+1 - Now you can simply git clone the code 
+
+2 - just run "./configure" | in Windows 10 , just run ".\configure"
+
+* **PAY ATTENTION** : If using venv, you should config pyvenv for your linux/windows
+
+Have a cup of coffee and wait for everything to be done.
+
+### How to use? 
+
+#### scan the license info  
+
+You can type : 
+
+scancode -l -n 2 --json-pp license.json samples 
+
+in Windows 10 :
+
+.\scancode -l -n 2 --json-pp copyright.json samples
+
+**-l** means license scan
+
+**-n 2** means 2 threads will be used in scan
+
+**--json-pp** means json will be used for output format
+
+**license.json** means the output report's name
+
+**samples** means what folder you will scan
+
+### Using docker
+docker pull smartsyoung/compliance-zhangfei:v0.2  
+
+docker run -v $PWD/:/project smartsyoung/compliance-zhangfei:v0.2 -l --json-pp /project/scan_result.json /project
