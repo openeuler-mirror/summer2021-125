@@ -31,4 +31,28 @@ if %errorlevel% neq 0 (
 @rem without this things may not always work on Windows 10, but this makes things slower
 set PYTHONDONTWRITEBYTECODE=1
 
-"%SCANCODE_ROOT_DIR%Scripts\scancode" %*
+set "SCANCODE_CMD_LINE_ARGS= "
+set "EXTRACTCODE_CMD_LINE_ARGS= "
+set "FILE_ARG= "
+
+for %%i in (%*) do (
+    if exist "%SCANCODE_ROOT_DIR%\%%i" (
+    set FILE_ARG=%%i
+    )
+)
+
+
+:collectarg
+    if ""%1""=="""" goto continue
+    if ""%1""==""--extractcode"" (
+        call "extractcode" %FILE_ARG%
+    )
+    if not ""%1""==""--extractcode"" (
+        call set SCANCODE_CMD_LINE_ARGS=%SCANCODE_CMD_LINE_ARGS% %1
+    )
+    shift
+goto collectarg
+
+:continue
+
+"%SCANCODE_ROOT_DIR%Scripts\scancode" %SCANCODE_CMD_LINE_ARGS%
