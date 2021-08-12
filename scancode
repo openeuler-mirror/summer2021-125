@@ -36,6 +36,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+
 realpath() {
     canonicalize_path "$(resolve_symlinks "$1")"
 }
@@ -118,7 +119,19 @@ if [ ! -f "$SCANCODE_CONFIGURED_PYTHON" ]; then
     set +e
 fi
 
-if [ -f "$SCANCODE_CONFIGURED_PYTHON" ]; then
-    "$SCANCODE_ROOT_DIR/bin/scancode" "$@"
-fi
+for param in "$@"; do
+  if [ $param = '--extractcode' ]; then
+      for param_file in "$@"; do
+          if [ -d "$SCANCODE_ROOT_DIR/$param_file" ]; then
+            ./extractcode $param_file
+          fi
+      done
+  fi
+done
 
+params="$@"
+params=${params/--extractcode/}
+
+if [ -f "$SCANCODE_CONFIGURED_PYTHON" ]; then
+    "$SCANCODE_ROOT_DIR/bin/scancode" $params
+fi
