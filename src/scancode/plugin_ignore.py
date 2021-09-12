@@ -76,7 +76,7 @@ class ProcessIgnore(PreScanPlugin):
         includes = {
             pattern: 'User include: Supplied by --include' for pattern in include
         }
-
+        print(excludes)
         included = partial(is_included, includes=includes, excludes=excludes)
 
         rids_to_remove = set()
